@@ -153,7 +153,7 @@ print("The third way of computing eulers number raised to the power of two shows
       " is likely using a more precise value for eulers number.  ")
 print(math.e)
 print(math.exp(1))
-#goign a little searching on the internet I found the reason is because the other two methods use a 16 digit long version of eulers
+#goign a little searching on the internet I found the reason is, because the other two methods use a 16 digit long version of eulers
 # number, but the third way uses the c library optimized algorithms to
 # calculate floating point exponentiation
 print("-"*120)
