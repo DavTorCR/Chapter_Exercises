@@ -177,7 +177,7 @@ my_turtle.color( "White" )
 
 
 # Let's start Drawing with my Turtle.
-my_turtle.speed(10)  # controls speed (from 1-10, slowest to faster | 0 fastest)
+my_turtle.speed(0)  # controls speed (from 1-10, slowest to faster | 0 fastest)
 
 jump(my_turtle, -450, -450)
 
@@ -187,55 +187,58 @@ jump(my_turtle, -450, -400)
 
 rhombus(50, 60)
 
-jump(my_turtle, -350, -300)
+jump(my_turtle, -350, -450)
 
-my_turtle.color( "cyan" )
+my_turtle.color( "aquamarine" )
 parallelogram(200, 100, 60)
 
-jump(my_turtle, -350, -300)
+jump(my_turtle, -88, -450)
 
-my_turtle.color( "salmon" )
+my_turtle.color( "aquamarine2" )
+rectangle_two(100, 50)
+
+jump(my_turtle, -88, -390)
+
+my_turtle.color( "aquamarine3" )
 rhombus_two(50, 60)
 
-jump(my_turtle, -250, -250)
 
-my_turtle.color( "green" )
-rectangle_two(100, 50)
-# Close the turtle graphics window when clicked
 
-jump(my_turtle, -200, -200)
+jump(my_turtle, 65, -430)
 
-# isosceles_triangle(100, 40)
-my_turtle.color( "yellowgreen" )
+
+my_turtle.color( "purple1" )
 draw_pie(5, 50)
 
-jump(my_turtle, -150, -150)
+jump(my_turtle, 210, -395)
 
-my_turtle.color( "red" )
+
+my_turtle.color( "purple2" )
 draw_pie(6, 100)
 
-jump(my_turtle, -100, -100)
+jump(my_turtle, 310, -160)
 
 
-my_turtle.color( "purple" )
+my_turtle.color( "purple3" )
 draw_pie(7, 150)
 
 
 jump(my_turtle, -50, -50)
 
-my_turtle.color( "pink" )
+my_turtle.color( "purple3" )
 draw_pie(8, 200)
 
 
-jump(my_turtle, 0, 0)
+jump(my_turtle, -300, 200)
+
 my_turtle.color( "pink" )
 flower(10, 90, 90)
 
-jump(my_turtle, 300, 300)
+jump(my_turtle, 150, 250)
 
 flower(7, 90, 90)
 jump(my_turtle, 300, 270)
-draw_circle(my_turtle, 20)
+
 
 
 turtle.exitonclick()
