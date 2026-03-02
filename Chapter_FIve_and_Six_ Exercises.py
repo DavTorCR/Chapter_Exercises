@@ -137,8 +137,8 @@ print("OK, looking at the textbook provided program, it begins by importing inst
       "draws using the value of factor (0.6) multiplied by length, then instructs turtle to move"
       " right by two multiplied by angle (50), then draws using the value of factor "
       "(50) multiplied by length, then instructs turtle to move left by angle (50),"
-      "then it instructs turtle to move back by the provided length. "
-      "it looks like turtle ")
+      "then it instructs turtle to move back by the provided length.")
+
 
 
 
@@ -314,7 +314,117 @@ print("End of Chapter Five Exercises.")
 
 print("~*"*45)
 
+print("This is the start of the Chapter Six Exercises.")
+
+# exercise one, try some incremental development.
+
+import math
+
+
+def hypot_in0():
+    return 0
+
+print(f"hypot_in0 -> returns: {hypot_in0()}")
+
+def hypot_in1(leg1, leg2):
+    print( f"   parameters: l1:{leg1} l2:{leg2}")
+    return 0
+
+l1, l2 = 3, 4
+print(f"l1:{l1} l2:{l2} hypot_in1 -> returns: {hypot_in1(l1, l2)}")
+
+def hypot_in2(leg1, leg2):
+    print( f"   parameters: l1:{leg1} l2:{leg2}" )
+    l1squared = leg1**2
+    l2squared = leg2**2
+    l1plusl2 = l1squared + l2squared
+    hypotenuse = math.sqrt(l1plusl2)
+    print(f"    l1:{l1squared} l2:{l2squared} l1+l2:{l1plusl2} h:{hypotenuse}")
+    return hypotenuse
+
+l1, l2 = 3, 4
+print(f"l1:{l1} l2:{l2} hypot_in2 -> returns: {hypot_in2(l1, l2)}")
+
+def hypot(leg1, leg2):
+    """Final version of calculating hypotenuse of right triangle from other legs."""
+    return math.sqrt(leg1**2 + leg2**2)
+
+l1, l2 = 3, 4
+print(f"l1:{l1} l2:{l2} hypot -> returns: {hypot(l1, l2)}")
+
+print("~*"*45)
+
+# exercise two, a boolean.
+
+def is_between(x, y, z):
+    return (x < y < z) or (z < y < x);
+
+# Test scenario 1, expect True
+print(is_between(3, 4, 5))
+# Test scenario 2, expect True
+print(is_between(5, 4, 3))
+# Test scenario 3, expect False
+print(is_between(4, 3, 5))
+
+print("~*"*45)
+# exercise three, evaluating ackerman
+
+import sys
+
+# System module allows us to tweak the recursion depth
+sys.setrecursionlimit(10000)  # Default recursion depth is 1000
+
+def ackermann(m, n):
+    global count
+    count += 1
+    if m == 0:
+        return n + 1
+    if m > 0 and n == 0:
+        return ackermann(m-1, 1)
+    if m > 0 and n > 0:
+        return ackermann(m-1, ackermann(m, n-1))
+
+
+"""
+count = 0
+print(ackermann(2, 2))  # Prints 7
+print( count )
+
+count=0
+print(ackermann(3, 3))  # Prints 61, but shows beyond exponential growth in recursive calls.
+print( count )
+
+# Even 4, 4 is WAY beyond 10000
+print(ackermann(4, 4))  # Prints 7
+
+print(ackermann(5, 5))  # Causes: RecursionError: maximum recursion depth exceeded
+print(count)
+"""
+
+""" This means so many function calls were made, that the limit set on recursion
+were reached or the program wasn't allowed to get more memory."""
 
 
 
+
+# exercise four, the greatest common denominator.
+
+def greatest_common_denominator(a, b):
+    """Recursive version to calculate the greatest common divisor."""
+    if b == 0: return a
+    return greatest_common_denominator(b, a % b)
+
+def greatest_common_denominator_e(a, b):
+    """More efficient looping version"""
+    while b != 0:
+        r = a % b
+        a, b = b, r
+    return a
+
+
+print(greatest_common_denominator(85, 20))
+print(greatest_common_denominator_e(85, 20))
+
+print("End of chapter Six exercises.")
+print("><"*45)
 
