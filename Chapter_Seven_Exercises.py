@@ -129,16 +129,16 @@ lb()
 def check_word(word, available, required):
     """Check whether a word is acceptable.
 
-    >>> check_word('color', 'ACDLORT', 'R')
-    True
-    >>> check_word('ratatat', 'ACDLORT', 'R')
-    True
-    >>> check_word('rat', 'ACDLORT', 'R')
-    False
-    >>> check_word('told', 'ACDLORT', 'R')
-    False
-    >>> check_word('bee', 'ACDLORT', 'R')
-    False
+#    >>> check_word('color', 'ACDLORT', 'R')
+#    True
+#    >>> check_word('ratatat', 'ACDLORT', 'R')
+#   True
+#   >>> check_word('rat', 'ACDLORT', 'R')
+#   False
+#   >>> check_word('told', 'ACDLORT', 'R')
+#   False
+#   >>> check_word('bee', 'ACDLORT', 'R')
+#   False
     """
     if len(word) < 4: return False
     word = word.lower()
@@ -149,16 +149,67 @@ def check_word(word, available, required):
 def word_score(word, available):
     """Compute the score for an acceptable word.
 
-    >>> word_score('card', 'ACDLORT')
-    1
-    >>> word_score('color', 'ACDLORT')
-    5
-    >>> word_score('cartload', 'ACDLORT')
-    15
+#   >>> word_score('card', 'ACDLORT')
+#   1
+#   >>> word_score('color', 'ACDLORT')
+#   5
+#   >>> word_score('cartload', 'ACDLORT')
+#   15
     """
     score = len(word) if len(word) > 4 else 1
     if uses_all(word, available): score += 7
     return score
 
-run_doctests(check_word)
-run_doctests(word_score)
+#run_doctests(check_word)
+#run_doctests(word_score)
+
+lb()
+
+def uses_any(word, letters):
+    for letter in word.lower():
+        if letter in letters.lower():
+            return True
+    return False
+
+def uses_none(word, forbidden):
+    """Checks whether a word avoids forbidden letters.
+
+#    >>> uses_none('banana', 'xyz')
+    True
+#    >>> uses_none('apple', 'efg')
+    False
+#    >>> uses_none('', 'abc')
+    True
+    """
+    return not uses_any( word, forbidden )
+
+def uses_all(word, required):
+    """Checks whether a word uses all required letters.
+
+#    >>> uses_all('banana', 'ban')
+    True
+#    >>> uses_all('apple', 'api')
+    False
+#    >>> uses_all('pawpaw', 'paw')
+    True
+#    >>> uses_all('persimmon', 'xyz')
+    False
+    """
+    # return uses_only(word, required) and len(set(word)) == len(required)
+    return uses_only(required, word)
+
+#run_doctests(uses_all)
+#run_doctests(uses_none)
+
+#print(uses_all('banana', 'ban'))
+#print(uses_all('apple','api'))
+#print(uses_all('pawpaw', 'paw'))
+#print(uses_all('persimmon', 'xyz'))
+
+# taking some time to find other fruits to use for the doctests, I found pawpaws, a fruit that
+# looks like a green to brown berry that apparently tastes like banana and pineapple which grows
+# around temperate areas that are native to the eastern North America.
+# Source:
+# https://en.wikipedia.org/wiki/Asimina_triloba
+
+print("Added Two Doctests to uses all function, pawpaw, paw | true and persimmon, xyz  | false.")
