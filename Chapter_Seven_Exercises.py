@@ -213,3 +213,6 @@ def uses_all(word, required):
 # https://en.wikipedia.org/wiki/Asimina_triloba
 
 print("Added Two Doctests to uses all function, pawpaw, paw | true and persimmon, xyz  | false.")
+
+print("End of Chapter Seven Exercises")
+lb()
