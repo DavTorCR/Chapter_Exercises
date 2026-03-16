@@ -129,3 +129,57 @@ def main():
 if __name__ == '__main__':
     # run()
     main()
+
+print("-"*90)
+
+def is_palindrome(word):
+    return ''.join(reversed(word)) == word
+
+def run():
+    print(is_palindrome('civic'))
+    print(is_palindrome('tops'))
+
+def main():
+    count = 0
+    with open('files/words.txt', 'r') as file:
+        for word in file:
+            word = word.strip().lower()
+            if len(word) >= 7 and is_palindrome(word):
+                count += 1
+                print(word)
+    print(f'Found {count} anagrams for takes')
+
+if __name__ == '__main__':
+    # run()
+    main()
+
+print("-"*90)
+
+def reverse_sentence(sentence):
+    print(' '.join(
+        reversed(
+            sentence.split(' '))).lower().capitalize())
+
+def main():
+    reverse_sentence('Reverse this sentence')
+    reverse_sentence('Unlearn what you have learned')
+    reverse_sentence('Feel the Force')
+
+if __name__ == '__main__':
+    main()
+
+print("-"*90)
+
+def total_length(str_list):
+    return sum(len(a.strip()) for a in str_list)
+
+def run():
+    print(total_length(['hello', 'world', 'I\'m', 'here']))
+
+def main():
+    with open('files/words.txt', 'r') as file:
+        print(total_length(file.readlines()))
+
+if __name__ == '__main__':
+    #run()
+    main()
