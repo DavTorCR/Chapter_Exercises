@@ -186,19 +186,19 @@ def uses_none(word, forbidden):
 def uses_all(word, required):
     """Checks whether a word uses all required letters.
 
-#    >>> uses_all('banana', 'ban')
+    >>> uses_all('banana', 'ban')
     True
-#    >>> uses_all('apple', 'api')
+    >>> uses_all('apple', 'api')
     False
-#    >>> uses_all('pawpaw', 'paw')
+    >>> uses_all('pawpaw', 'paw')
     True
-#    >>> uses_all('persimmon', 'xyz')
+    >>> uses_all('persimmon', 'xyz')
     False
     """
     # return uses_only(word, required) and len(set(word)) == len(required)
     return uses_only(required, word)
 
-#run_doctests(uses_all)
+run_doctests(uses_all)
 #run_doctests(uses_none)
 
 #print(uses_all('banana', 'ban'))
